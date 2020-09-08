@@ -2,6 +2,7 @@ import React, { useState, useReducer } from "react";
 import {initialState, reducer} from './reducers/reducer'
 import './App.css';
 import TodoList from './Todolist'
+import Todoform from './Todoform'
 
 
 const Todo = () => {
@@ -14,6 +15,7 @@ function App() {
   
 
   const handleChanges = e => {
+    e.preventDefault();
     setCurrentTodo(e.target.value)
 
   }
@@ -22,24 +24,20 @@ function App() {
     dispatch({ type: "UPDATE_TODO", payload: currentTodo})
   }
 
-   const updateCompleted = () => {
-     dispatch ({ type: "UPDATE_COMPLETED"})
+   const updateCompleted = (item) => {
+     dispatch ({ type: "UPDATE_COMPLETED", payload: item})
    }
 
   return (
-    <div className="App">
-      <h1>Add to do:</h1>
-      <input
-      type = "text"
-      name = "currentTodo"
-      value = {currentTodo} 
-      onChange = {handleChanges}
+    <div className = "App">
+      <Todoform 
+      currentTodo = {currentTodo}
+      handleChanges = {handleChanges}
+      updateTodo = {updateTodo}
       />
-      <button onClick = {updateTodo}>Add</button>
-      <button>Clear</button>
+           
       
-      <h2>To do list</h2>
-       <TodoList 
+      <TodoList 
       state = {state}
       updateCompleted = {updateCompleted}
       dispatch = {dispatch}
