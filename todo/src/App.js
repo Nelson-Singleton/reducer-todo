@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from "react";
 import {initialState, reducer} from './reducers/reducer'
 import './App.css';
+import TodoList from './Todolist'
 
 
 const Todo = () => {
@@ -8,13 +9,17 @@ const Todo = () => {
 } 
 
 function App() {
-  const [todo, SetTodo] = useState("")
+  const [currentTodo, setCurrentTodo] = useState("")
   const [state, dispatch] = useReducer(reducer, initialState)
-  console.log(state, todo)
+  
 
   const handleChanges = e => {
-    SetTodo(e.target.value)
+    setCurrentTodo(e.target.value)
 
+  }
+
+  const updateTodo = () => {
+    dispatch({ type: "UPDATE_TODO", payload: currentTodo})
   }
 
   return (
@@ -22,15 +27,17 @@ function App() {
       <h1>Add to do:</h1>
       <input
       type = "text"
-      name = "todo"
-      value = {todo} 
+      name = "currentTodo"
+      value = {currentTodo} 
       onChange = {handleChanges}
       />
-      <button>Add</button>
+      <button onClick = {updateTodo}>Add</button>
       <button>Clear</button>
       
       <h2>To do list</h2>
-      {state.todos.item}
+      <TodoList 
+      state = {state}
+      />
     </div>
   );
 }
