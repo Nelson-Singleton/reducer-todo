@@ -29,12 +29,19 @@ function App() {
      dispatch ({ type: "UPDATE_COMPLETED", payload: item})
    }
 
+   const clearCompleted = (e) => {
+     e.preventDefault();
+     dispatch ({ type: "CLEAN_COMPLETED"})
+   }
+
   return (
     <div className = "App">
       <Todoform 
       currentTodo = {currentTodo}
       handleChanges = {handleChanges}
       updateTodo = {updateTodo}
+      dispatch = {dispatch}
+      clearCompleted = {clearCompleted}
       />
            
       
