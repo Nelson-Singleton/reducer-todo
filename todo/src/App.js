@@ -22,9 +22,9 @@ function App() {
     dispatch({ type: "UPDATE_TODO", payload: currentTodo})
   }
 
-  const updateCompleted = () => {
-    dispatch ({ type: "UPDATE_COMPLETED"})
-  }
+   const updateCompleted = () => {
+     dispatch ({ type: "UPDATE_COMPLETED"})
+   }
 
   return (
     <div className="App">
@@ -42,7 +42,7 @@ function App() {
        <TodoList 
       state = {state}
       updateCompleted = {updateCompleted}
-
+      dispatch = {dispatch}
       />
 
       {/* {state.todos.map(someTodo => (

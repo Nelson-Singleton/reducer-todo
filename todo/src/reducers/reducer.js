@@ -13,7 +13,9 @@ export const reducer = (state, action) => {
         return {
             ...state, //return current state array 
             todos: [...state.todos, //return a copy of current todos array, but adds a new object
-            { //new object. Payload is what's currently in state when dispatch is called.
+            
+            //new object
+            { 
             item: action.payload,
             completed: false,
             id: new Date()
@@ -22,19 +24,17 @@ export const reducer = (state, action) => {
         
 
         case "UPDATE_COMPLETED":
-            return {
-                ...state,
-                // todos: state.todos.map(someTodo => {
-                //     if (action.payload === someTodo.id){
-                //         return {
-                //             ...someTodo,
-                //             completed: !someTodo.completed
-                //         }
-                //     }
-                // })
+            // return {
+            //     ...state,
+            //      completed: !state.completed,
+            // } 
 
-                 completed: !state.completed,
+            return {
+                todos: state.todos.map(todo => {
+                    todo.completed = !todo.completed    
+                })
             }
+            
         default:
             return state
     }

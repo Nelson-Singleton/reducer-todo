@@ -6,11 +6,12 @@ import { useState, useReducer } from "react";
 function Todo(props){
 
     return (
-        <div>
-            <h1>{props.state.todo}</h1>
+        <div onClick = {() => props.dispatch({ type: "TOGGLE_COMPLETED", payload: props.item.id })}>
+            <h1>{props.item.item}</h1>
             
         
-        </div>)
+        </div>
+    )
         
     
 }
