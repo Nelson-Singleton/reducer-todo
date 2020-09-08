@@ -9,9 +9,15 @@ const TodoList = props => {
 
     return (
         <div>
+            <h2>Current Todos:</h2>
                                    
-            {props.state.todos.map( item => {
-                    return <Todo key = {item.id} item = {item} dispatch = {props.dispatch} />                             
+            {props.state.todos.map( todo => {
+                    return (<Todo 
+                        key = {todo.id} 
+                        todo = {todo} 
+                        dispatch = {props.dispatch}
+                        updateCompleted = {props.updateCompleted}
+                        />)                             
         
                 })
             }

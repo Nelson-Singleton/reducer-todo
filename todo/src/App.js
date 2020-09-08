@@ -20,7 +20,8 @@ function App() {
 
   }
 
-  const updateTodo = () => {
+  const updateTodo = (e) => {
+    e.preventDefault();
     dispatch({ type: "UPDATE_TODO", payload: currentTodo})
   }
 
