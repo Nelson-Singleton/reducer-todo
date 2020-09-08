@@ -2,7 +2,7 @@ export const initialState = {
     todos: [{
         item: 'Learn about reducers',
         completed: false,
-        id: 3892987589 
+        id: new Date() 
     }]
 }
 
@@ -24,7 +24,16 @@ export const reducer = (state, action) => {
         case "UPDATE_COMPLETED":
             return {
                 ...state,
-                completed: true,
+                // todos: state.todos.map(someTodo => {
+                //     if (action.payload === someTodo.id){
+                //         return {
+                //             ...someTodo,
+                //             completed: !someTodo.completed
+                //         }
+                //     }
+                // })
+
+                 completed: !state.completed,
             }
         default:
             return state

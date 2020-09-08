@@ -22,6 +22,10 @@ function App() {
     dispatch({ type: "UPDATE_TODO", payload: currentTodo})
   }
 
+  const updateCompleted = () => {
+    dispatch ({ type: "UPDATE_COMPLETED"})
+  }
+
   return (
     <div className="App">
       <h1>Add to do:</h1>
@@ -35,9 +39,17 @@ function App() {
       <button>Clear</button>
       
       <h2>To do list</h2>
-      {/* <TodoList 
-      todos = {state.todos}
-      /> */}
+       <TodoList 
+      state = {state}
+      updateCompleted = {updateCompleted}
+
+      />
+
+      {/* {state.todos.map(someTodo => (
+       <div> {someTodo.item} </div> 
+      ))
+        
+      } */}
 
     </div>
   );
