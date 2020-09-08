@@ -1,18 +1,18 @@
-import React from 'react'
-import {initialState, reducer} from './reducers/reducer'
-import { useState, useReducer } from "react";
+// import React from 'react'
+// import {initialState, reducer} from './reducers/reducer'
+// import { useState, useReducer } from "react";
 
 
-function Todo(props){
+// function Todo(props){
 
-    return (
-        <div>
-            {props.state.todos.item}
+//     return (
+//         <div>
+//             {props.state.todos.todo.item}
             
         
-        </div>)
+//         </div>)
         
     
-}
+// }
 
-export default Todo
+// export default Todo

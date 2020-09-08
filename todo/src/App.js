@@ -35,9 +35,10 @@ function App() {
       <button>Clear</button>
       
       <h2>To do list</h2>
-      <TodoList 
-      state = {state}
-      />
+      {/* <TodoList 
+      todos = {state.todos}
+      /> */}
+
     </div>
   );
 }
